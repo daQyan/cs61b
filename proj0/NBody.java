@@ -52,7 +52,7 @@ public class NBody {
 
         int time = 0;
 
-        while (time != T) {
+        while (time <= T) {
             double[] xForces = new double[5];
             double[] yForces = new double[5];
             int i = 0;
@@ -68,8 +68,9 @@ public class NBody {
 
             StdDraw.picture(0, 0, imageToDraw);
             StdDraw.pause(10);
-            dt++;
-        }        
+            time += dt;
+        }
+                
         StdDraw.show();
 
         StdOut.printf("%d\n", planets.length);
