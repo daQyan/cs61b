@@ -12,9 +12,13 @@ public class SLList {
     }
 
     private IntNode first;
+
+
     public void addFirst(int x) {
         first = new IntNode(x, first);
     }
+
+
     public void insert(int item, int position) {
         if (first == null || position == 0) {
             addFirst(item);
