@@ -1,4 +1,4 @@
-public class LinkedListDeque<Item>  {
+public class LinkedListDeque<Item> implements Deque<Item> {
 
     private IntNode seninel;
     private int size;
@@ -20,7 +20,7 @@ public class LinkedListDeque<Item>  {
         size = 0;
 
     }
-
+    @Override
     /** add the first Item to the double-linked list */
     public void addFirst(Item item) {
         IntNode p = new IntNode(null, item, null);
@@ -37,6 +37,7 @@ public class LinkedListDeque<Item>  {
 
         size++;
     }
+    @Override
     /** add the last Item to the list */
     public void addLast(Item item) {
         IntNode p = new IntNode(null, item, null);
@@ -53,11 +54,12 @@ public class LinkedListDeque<Item>  {
 
         size++;
     }
-
+    @Override
     public boolean isEmpty() {
         return seninel.next == null;
     }
 
+    @Override
     /** return the size of the list */
     public int size() {
         return size;
@@ -72,12 +74,16 @@ public class LinkedListDeque<Item>  {
         }
     }
 
+    @Override
     /** remove and return the first Item at the deque */
     public Item removeFirst() {
-        if (size == 1) {
+        /**
+         * seems not necessary
+            if (size == 1) {
+            IntNode l = seninel.next;
             seninel.next = null;
-            return null;
-        }
+            return l.item;
+        }*/
         IntNode f = seninel.next;
         f.next.prev = f.prev;
         seninel.next = f.next;
@@ -85,9 +91,10 @@ public class LinkedListDeque<Item>  {
         f.next = null;
         f.prev = null;
         size--;
-        return seninel.next.item;
+        return f.item;
     }
 
+    @Override
     /** remove and return the last Item at the deque*/
     public Item removeLast() {
         IntNode l = seninel.next.prev;
@@ -96,9 +103,10 @@ public class LinkedListDeque<Item>  {
         l.prev = null;
         l.next = null;
         size--;
-        return seninel.next.item;
+        return l.item;
     }
 
+    @Override
     /** get the Item at the given index */
     public Item get(int index) {
         IntNode p = seninel.next;
