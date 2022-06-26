@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 public class OffByN implements CharacterComparator {
 
-    public int num;
+    private int num;
 
     public OffByN(int N) {
         num = N;

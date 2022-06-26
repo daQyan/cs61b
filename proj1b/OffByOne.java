@@ -14,7 +14,7 @@ public class OffByOne implements CharacterComparator {
 
 
     @Test
-    public void testEqualChars() {
+    private void testEqualChars() {
         OffByOne obo = new OffByOne();
         boolean a = obo.equalChars('a', 'b');
         boolean b = obo.equalChars('a', 'e');
@@ -22,7 +22,7 @@ public class OffByOne implements CharacterComparator {
         assertEquals(false, b);
     }
     @Test
-    public void testEqualChars2() {
+    private void testEqualChars2() {
         OffByN obo = new OffByN(5);
         boolean a = obo.equalChars('a', 'f');
         boolean b = obo.equalChars('a', 'e');
