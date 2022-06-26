@@ -20,7 +20,7 @@ public class Palindrome {
         return true;
     }
 
-    //TODO
+
     public boolean isPalindrome(String word, CharacterComparator cc) {
         Deque<Character> curr = wordToDeque(word);
 
